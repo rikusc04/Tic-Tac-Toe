@@ -41,7 +41,9 @@ To get the game running on your local machine, follow these steps:
       ```bash
       cd "Tic-Tac-Toe"
       ```
-3. Ensure Python is installed: Verify that you have a Python interpreter available on your system
+3. Ensure Python is installed:
+   - Verify that you have a Python interpreter available on your system
+   - Note that this program was written using Python 3
 4. Run the game:
     * Execute the Python script from your terminal
       ```bash
