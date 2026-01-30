@@ -20,7 +20,7 @@ def print_board():
     print(board[2][0] + " | " + board[2][1] + " | " + board[2][2])
 
 def check_winner():
-    #check rows:
+    # check rows:
     for i in range(3):
         if board[i][0] != " " and board[i][0] == board[i][1] == board[i][2]:
             if board[i][0] == PLAYER:
@@ -28,7 +28,7 @@ def check_winner():
             elif board[i][0] == COMPUTER:
                 return COMPUTER
         
-    #check columns:
+    # check columns:
     for i in range(3):
         if board[0][i] != " " and board[0][i] == board[1][i] == board[2][i]:
             if board[0][i] == PLAYER:
@@ -36,7 +36,7 @@ def check_winner():
             elif board[0][i] == COMPUTER:
                 return COMPUTER
         
-    #check diagonals:
+    # check diagonals:
     if board[1][1] != " " and board[0][0] == board[1][1] == board[2][2]:
         if board[0][0] == PLAYER:
             return PLAYER
@@ -61,8 +61,8 @@ def check_free_spaces():
     free_spaces = 9
     for i in range(3):
         for j in range(3):
-            if board[i][j] != " ":  #if the current space doesn't equal an empty space, 
-                free_spaces -= 1    #subtract one from the remaining number of free spaces
+            if board[i][j] != " ":
+                free_spaces -= 1
 
     return free_spaces
     
@@ -148,23 +148,23 @@ def player_move():
 
 def main():
     winner = None
-    reset_board() #resets the board to initial state and returns it
-    while winner is None and check_free_spaces() != 0: #while the there is no winner and there is a move available
-        print_board() #prints the board
+    reset_board()
+    while winner is None and check_free_spaces() != 0:
+        print_board()
         player_move()
         winner = check_winner()
-        if winner is not None or check_free_spaces() == 0: #if there is a winner, or if there are no free spaces
+        if winner is not None or check_free_spaces() == 0:
             break
         computer_move()
         winner = check_winner()
-        if winner is not None or check_free_spaces() == 0: #if there is a winner, or if there are no free spaces
+        if winner is not None or check_free_spaces() == 0:
             break
     print_board()
     if check_free_spaces() == 0:
         print("Unfortunately, the game ended in a draw!")
     elif winner == PLAYER:
         print("Congratulations! You won the game!")
-    else: #winner == COMPUTER
+    else:
         print("Too bad! You Lost!")
 
 main()
